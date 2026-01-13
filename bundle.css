@@ -292,18 +292,12 @@ a {
 }
 
 .shape {
-	-webkit-transition: -webkit-filter 1.3s ease-out;
-	transition: -webkit-filter 1.3s ease-out;
-	-o-transition: filter 1.3s ease-out;
 	transition: filter 1.3s ease-out;
-	transition: filter 1.3s ease-out, -webkit-filter 1.3s ease-out;
 	position: relative;
-	-webkit-filter: blur(0.5rem);
 	filter: blur(0.5rem);
-}
-.shape:hover {
-	-webkit-filter: blur(0);
-	filter: blur(0);
+	&:hover {
+		filter: blur(0);
+	}
 }
 
 .hexagonal {
