@@ -1,0 +1,52 @@
+@mixin set-width ($width){
+  width: $width;
+  margin-right: auto;
+  margin-left: auto;
+}
+@mixin makeColor ($color) {
+  color: $color;
+}
+
+@mixin mQ-max ($width-number){
+  @media screen and (max-width: $width-number) {
+      @content;
+  } 
+}
+@mixin mQ-min ($width-number){
+  @media screen and (min-width: $width-number) {
+      @content;
+  }
+}
+
+@mixin set-width-fluid {
+  width: 100vw;
+  margin-right: auto; 
+  margin-left: auto;
+  padding-right: 2rem;
+  padding-left: 2rem;
+} 
+
+@mixin animtionCnrl ($type, $dur, $easing) {
+  transition: $type $dur;
+  transition-timing-function: $easing;
+} 
+// ------------
+// Text
+// ------------
+
+// Title
+
+@mixin text {
+  // @include animtionCnrl (font-size, .5s, ease-in);
+  padding: 0;
+  margin: 0;
+  // line-height: 1;
+}
+@mixin titles {
+  font-family: "Inknut Antiqua"; 
+  // @include animtionCnrl (font-size, .25s, ease-out);
+  align-self: center;
+  padding: 0;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
