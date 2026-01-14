@@ -271,18 +271,19 @@ a {
 	margin-block-start: var(--step--1);
 }
 
+@property --rotation {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
 @keyframes rotate {
-	from {
-		transform: rotateZ(0);
-	}
 	to {
-		transform: rotateZ(1turn);
+		--rotation: 1turn;
 	}
 }
 .shape {
   position: relative;
-  animation: 2s linear 1s rotate infinite;
-  /* transform-origin: center; */
 	transition: filter 0.75s ease-out;
 	filter: blur(0.05rem);
 	width: var(--step-1);
@@ -293,28 +294,49 @@ a {
 }
 
 .hexagonal {
+  --rotation: 0deg;
+  animation: 20s linear rotate infinite;
 	grid-column: 12 / -1;
 	grid-row: 2;
-	inset-block-start: var(--step-4);
-	inset-inline-end: var(--step-3);
-	transform: scale(13);
+	inset-block-end: var(--step-5);
+	inset-inline-start: var(--step-2);
+	transform: rotateZ(var(--rotation)) scale(12);
 	z-index: 7;
 	@media screen and (width <= 30rem) {
+    grid-row: 3;
+    grid-column: 9 / -1;
+    inset-block-start: var(--step-3);
+    inset-inline-start: var(--step-6);
+    z-index: 9;
+    transform: rotateZ(var(--rotation)) scale(10);
 	}
 }
 .star {
+  --rotation: 0deg;
+  animation: 40s linear rotate infinite;
 	grid-column: 8 / -1;
 	grid-row: 5;
-	transform: scale(10);
+  inset-inline-start: var(--step-3);
+	transform: rotateZ(var(--rotation)) scale(10);
+	@media screen and (width <= 45rem) {
+    grid-column: 9 / -1;
+	}
 	@media screen and (width <= 30rem) {
+   display: none;
 	}
 }
 
 .pentagon {
-	grid-column: 11 / -1;
+  --rotation: 0;
+  animation: 30s linear rotate infinite;
+	grid-column: 13 / -1;
 	grid-row: 6;
-  inset-block-start: calc(1.75 * var(--step-9));
+  inset-block-start: calc(2 * var(--step-8));
 	inset-inline-start: var(--step-1);
-	transform: scale(10);
-	/* z-index: 1; */
+	transform: rotateZ(var(--rotation)) scale(10);
+  @media screen and (width <= 30rem) {
+    grid-row: 4;
+    grid-column: 11 / -1;
+    /* inset-block-start: calc(2 * var(--step-8)); */
+  }
 }
