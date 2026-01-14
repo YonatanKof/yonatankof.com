@@ -14,20 +14,20 @@
 	font-display: swap;
 }
 :root {
-	--step--3: clamp(0.434rem, 0.3712rem + 0.1597vw, 0.448rem);
-	--step--2: clamp(0.5208rem, 0.3446rem + 0.4476vw, 0.56rem);
-	--step--1: clamp(0.625rem, 0.2875rem + 0.8571vw, 0.7rem);
-	--step-0: clamp(0.75rem, 0.1875rem + 1.4286vw, 0.875rem);
-	--step-1: clamp(0.9rem, 0.0281rem + 2.2143vw, 1.0938rem);
-	--step-2: clamp(1.08rem, -0.2123rem + 3.2821vw, 1.3672rem);
-	--step-3: clamp(1.296rem, -0.5624rem + 4.7198vw, 1.709rem);
-	--step-4: clamp(1.5552rem, -1.0594rem + 6.6403vw, 2.1362rem);
-	--step-5: clamp(1.8662rem, -1.752rem + 9.1891vw, 2.6703rem);
-	--step-6: clamp(2.2395rem, -2.7032rem + 12.5528vw, 3.3379rem);
-	--step-7: clamp(2.6874rem, -3.9948rem + 16.9707vw, 4.1723rem);
-	--step-8: clamp(3.2249rem, -5.7326rem + 22.7491vw, 5.2154rem);
-	--step-9: clamp(3.8698rem, -8.0526rem + 30.2791vw, 6.5193rem);
-	--step-10: clamp(4.6438rem, -11.1299rem + 40.0602vw, 8.1491rem);
+	--step--3: clamp(0.434rem, 0.4218rem + 0.0537vw, 0.448rem);
+	--step--2: clamp(0.5208rem, 0.4866rem + 0.1506vw, 0.56rem);
+	--step--1: clamp(0.625rem, 0.5594rem + 0.2885vw, 0.7rem);
+	--step-0: clamp(0.75rem, 0.6406rem + 0.4808vw, 0.875rem);
+	--step-1: clamp(0.9rem, 0.7305rem + 0.7452vw, 1.0938rem);
+	--step-2: clamp(1.08rem, 0.8287rem + 1.1046vw, 1.3672rem);
+	--step-3: clamp(1.296rem, 0.9346rem + 1.5884vw, 1.709rem);
+	--step-4: clamp(1.5552rem, 1.0468rem + 2.2347vw, 2.1362rem);
+	--step-5: clamp(1.8662rem, 1.1627rem + 3.0925vw, 2.6703rem);
+	--step-6: clamp(2.2395rem, 1.2784rem + 4.2245vw, 3.3379rem);
+	--step-7: clamp(2.6874rem, 1.3881rem + 5.7113vw, 4.1723rem);
+	--step-8: clamp(3.2249rem, 1.4831rem + 7.6559vw, 5.2154rem);
+	--step-9: clamp(3.8698rem, 1.5516rem + 10.1901vw, 6.5193rem);
+	--step-10: clamp(4.6438rem, 1.5767rem + 13.4818vw, 8.1491rem);
 	--shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.15), 0 8px 24px 0 rgba(0, 0, 0, 0.3);
 }
 
@@ -37,10 +37,9 @@ html {
 	font-family: system-ui, sans-serif;
 	line-height: 1.35;
 	--border-r: 0.5rem;
-  @media screen and (width <= 28rem) {
-    font-size: 14px;
+	@media screen and (width <= 30rem) {
+		font-size: 14px;
 	}
-
 }
 
 body {
@@ -51,6 +50,7 @@ body {
 p {
 	margin: 0;
 	padding: 0;
+	text-wrap: pretty;
 }
 
 .main-opacity {
@@ -70,12 +70,12 @@ h2 {
 	font-family: 'Inknut Antiqua';
 	letter-spacing: -0.075em;
 	line-height: 1.2;
-	padding-block-end: 0.25rem;
+	padding-block-end: var(--step--3);
 }
 h1 {
 	font-size: var(--step-7);
 	font-weight: 700;
-	@media screen and (width <= 28rem) {
+	@media screen and (width <= 30rem) {
 		padding-block-start: var(--step-5);
 	}
 }
@@ -83,7 +83,7 @@ h1 {
 h2 {
 	font-size: var(--step-5);
 	font-weight: 500;
-	@media screen and (width <= 28rem) {
+	@media screen and (width <= 30rem) {
 		padding-block-start: var(--step-2);
 	}
 }
@@ -117,12 +117,12 @@ a {
 
 .link {
 	font-family: 'Inknut Antiqua';
-	font-weight: 300;
-	color: #33bbff;
-	transition: filter 0.3s ease-out;
+	color: #6cf;
+	transition: color 0.3s ease-out;
 	line-height: inherit;
 	&:hover {
-		filter: invert(100%);
+		color: white;
+		/* filter: invert(100%); */
 	}
 }
 
@@ -140,7 +140,7 @@ a {
 	max-width: 60rem;
 	margin-inline: auto;
 	padding: 2rem;
-	@media screen and (width <= 28rem) {
+	@media screen and (width <= 30rem) {
 		padding: 0;
 	}
 }
@@ -156,10 +156,8 @@ a {
 .omni-kof {
 	display: grid;
 	grid-template-columns: repeat(15, 1fr);
-	grid-template-rows:
-		calc(2 * var(--step-9)) 4rem var(--step-2) calc(2.25 * var(--step-8)) var(--step-2) calc(2.5 * var(--step-7))
-		auto;
-	@media screen and (width <= 28rem) {
+	grid-template-rows: auto 4rem var(--step-2) auto var(--step-2) auto;
+	@media screen and (width <= 30rem) {
 		grid-template-rows: auto auto var(--step-5) 1fr;
 		/* margin: var(--step-2) 0 0 0; */
 		height: 100vh;
@@ -168,9 +166,10 @@ a {
 .kof-titles {
 	grid-column: 1 / span 11;
 	grid-row: 1 / span 2;
-	padding-inline-start: var(--step-7);
+	padding-inline-start: var(--step-6);
+	padding-block: var(--step-4);
 	z-index: 10;
-	@media screen and (width <= 28rem) {
+	@media screen and (width <= 30rem) {
 		grid-row: 1;
 		grid-column: 2 / -1;
 		color: #ffffff;
@@ -182,8 +181,9 @@ a {
 .kof-tagline {
 	grid-column: 2 / span 10;
 	grid-row: 4;
-	padding-inline-start: var(--step-7);
-	@media screen and (width <= 28rem) {
+	padding-inline-start: var(--step-5);
+	padding-block: var(--step-4);
+	@media screen and (width <= 30rem) {
 		grid-row: 2;
 		color: #ffffff;
 		grid-column: 2 / -1;
@@ -199,8 +199,11 @@ a {
 	position: relative;
 	grid-template-columns: subgrid;
 	grid-template-rows: auto var(--step-2) 1fr;
-	@media screen and (width <= 28rem) {
-		grid-column: 10 / -1;
+	@media screen and (width <= 45rem) {
+    grid-column: 10 / -1;
+	}
+	@media screen and (width <= 30rem) {
+		/* grid-column: 10 / -1; */
 		grid-row: 2 / -1;
 		border-radius: var(--border-r) 0 0 var(--border-r);
 		z-index: 110;
@@ -210,10 +213,9 @@ a {
 		grid-column: 1 / -1;
 		width: 100%;
 		height: auto;
-		z-index: 10;
-		@media screen and (width <= 28rem) {
+		@media screen and (width <= 30rem) {
 			border-radius: var(--border-r) 0 0 var(--border-r);
-      margin-block-start: var(--step-5);
+			margin-block-start: var(--step-5);
 		}
 	}
 	footer {
@@ -225,9 +227,9 @@ a {
 		padding-inline-start: var(--step-2);
 		height: min-content;
 		@media screen and (width <= 45rem) {
-			grid-column: 5 / -1;
+			grid-column: 4 / -1;
 		}
-		@media screen and (width <= 28rem) {
+		@media screen and (width <= 30rem) {
 			grid-column: 3 / -1;
 		}
 		&:hover {
@@ -237,33 +239,31 @@ a {
 			color: #ffffff;
 			opacity: 0.5;
 		}
-		span {
-			padding-block-end: var(--step-2);
-		}
 	}
 }
-
+.kof-links {
+	display: flex;
+	flex-direction: column;
+	gap: var(--step-2);
+}
 .kof-bio {
 	z-index: 13;
 	grid-column: 3 / span 8;
 	grid-row: 6 / -1;
-	padding: var(--step-5);
+	padding: var(--step-5) var(--step-6);
 	flex-direction: column;
-	/* align-items: start; */
 	height: max-content;
 	@media screen and (width <= 45rem) {
-		grid-column: 3 / span 10;
+    grid-column: 3 / span 10;
 	}
-	@media screen and (width <= 28rem) {
-    padding-inline-end: var(--step-9);
+	@media screen and (width <= 30rem) {
+    padding: var(--step-5);
+		padding-inline-end: var(--step-9);
 		grid-row: 4 / -1;
 		grid-column: 1 / span 11;
 		border-radius: 0 var(--border-r) 0 0;
 		height: unset;
 	}
-  @media screen and (width <= 20rem) {
-    padding-inline-end: var(--step-5);
-  }
 }
 .kof-logo {
 	max-width: var(--step-4);
