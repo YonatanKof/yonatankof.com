@@ -1,32 +1,46 @@
-@import url('https://fonts.googleapis.com/css?family=Inknut+Antiqua');
-:root {
+@font-face {
+	font-family: 'Inknut Antiqua';
+	src: url('../fonts/InknutAntiqua-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
 
-  --step--2: clamp(0.5208rem, 0.3446rem + 0.4476vw, 0.56rem);
-  --step--1: clamp(0.625rem, 0.2875rem + 0.8571vw, 0.7rem);
-  --step-0: clamp(0.75rem, 0.1875rem + 1.4286vw, 0.875rem);
-  --step-1: clamp(0.9rem, 0.0281rem + 2.2143vw, 1.0938rem);
-  --step-2: clamp(1.08rem, -0.2123rem + 3.2821vw, 1.3672rem);
-  --step-3: clamp(1.296rem, -0.5624rem + 4.7198vw, 1.709rem);
-  --step-4: clamp(1.5552rem, -1.0594rem + 6.6403vw, 2.1362rem);
-  --step-5: clamp(1.8662rem, -1.752rem + 9.1891vw, 2.6703rem);
-  --step-6: clamp(2.2395rem, -2.7032rem + 12.5528vw, 3.3379rem);
-  --step-7: clamp(2.6874rem, -3.9948rem + 16.9707vw, 4.1723rem);
-  --step-8: clamp(3.2249rem, -5.7326rem + 22.7491vw, 5.2154rem);
-  --step-9: clamp(3.8698rem, -8.0526rem + 30.2791vw, 6.5193rem);
-  --step-10: clamp(4.6438rem, -11.1299rem + 40.0602vw, 8.1491rem);
+@font-face {
+	font-family: 'Inknut Antiqua';
+	src: url('../fonts/InknutAntiqua-ExtraBold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+:root {
+	--step--3: clamp(0.434rem, 0.3712rem + 0.1597vw, 0.448rem);
+	--step--2: clamp(0.5208rem, 0.3446rem + 0.4476vw, 0.56rem);
+	--step--1: clamp(0.625rem, 0.2875rem + 0.8571vw, 0.7rem);
+	--step-0: clamp(0.75rem, 0.1875rem + 1.4286vw, 0.875rem);
+	--step-1: clamp(0.9rem, 0.0281rem + 2.2143vw, 1.0938rem);
+	--step-2: clamp(1.08rem, -0.2123rem + 3.2821vw, 1.3672rem);
+	--step-3: clamp(1.296rem, -0.5624rem + 4.7198vw, 1.709rem);
+	--step-4: clamp(1.5552rem, -1.0594rem + 6.6403vw, 2.1362rem);
+	--step-5: clamp(1.8662rem, -1.752rem + 9.1891vw, 2.6703rem);
+	--step-6: clamp(2.2395rem, -2.7032rem + 12.5528vw, 3.3379rem);
+	--step-7: clamp(2.6874rem, -3.9948rem + 16.9707vw, 4.1723rem);
+	--step-8: clamp(3.2249rem, -5.7326rem + 22.7491vw, 5.2154rem);
+	--step-9: clamp(3.8698rem, -8.0526rem + 30.2791vw, 6.5193rem);
+	--step-10: clamp(4.6438rem, -11.1299rem + 40.0602vw, 8.1491rem);
 }
 
 html {
 	font-size: 14px;
 	background: #171614;
 	font-family: system-ui, sans-serif;
-  line-height: 1.35;
-  --border-r: 0.5rem;
+	line-height: 1.35;
+	--border-r: 0.5rem;
 }
 
 body {
 	margin: 0;
-  padding: 0;
+	padding: 0;
 }
 
 p {
@@ -49,45 +63,42 @@ h2 {
 	font-family: 'Inknut Antiqua';
 	letter-spacing: -0.075em;
 	line-height: 1.2;
-  padding-block-end: 0.25rem;
+	padding-block-end: 0.25rem;
+	@media screen and (width <= 28rem) {
+		padding-block: var(--step-2);
+	}
 }
 h1 {
-	font-size: clamp(2.6874rem, -3.9948rem + 16.9707vw, 4.1723rem);
+	font-size: var(--step-7);
 	font-weight: 700;
-	/* @media screen and (max-width: 45rem) {
-		font-size: 3.5rem;
-	} */
 }
 
 h2 {
-	font-size: clamp(1.5552rem, -1.0594rem + 6.6403vw, 2.1362rem);
-	font-weight: 400;
-	/* @media screen and (max-width: 45rem) {
-		font-size: 1.5rem;
-	} */
+	font-size: var(--step-5);
+	font-weight: 500;
 }
 
 .text-md {
-	font-size: 1.125rem;
+	font-size: var(--step-2);
 	margin-bottom: 0.44444444rem;
 }
 
 .text-sm {
 	font-size: 0.9375rem;
+	font-size: var(--step-1);
 	margin-bottom: 0.61538462rem;
-	/* @media screen and (max-width: 45rem) {
-		font-size: 0.75rem;
-	} */
 }
 
 .text-xs {
 	font-size: 0.75rem;
+	font-size: var(--step-0);
 	margin-bottom: 0.61538462rem;
 }
 
 .text-xxs {
 	font-size: 0.625rem;
-	margin-bottom: 0.61538462rem;
+	font-size: var(--step--1);
+	margin-bottom: 0.125rem;
 }
 
 a {
@@ -115,15 +126,12 @@ a {
 }
 
 .container {
-	/* overflow: hidden; */
 	height: max-content;
 	max-width: 60rem;
 	margin-inline: auto;
-  padding: 2rem;
-  
-	@media screen and (max-width: 32rem) {
-    padding: 0;
-		/* width: 100%; */
+	padding: 2rem;
+	@media screen and (width <= 28rem) {
+		padding: 0;
 	}
 }
 
@@ -133,7 +141,7 @@ a {
 	border-radius: var(--border-r);
 	display: flex;
 	align-items: center;
-	@media screen and (max-width: 35rem) {
+	@media screen and (width <= 28rem) {
 		&:first-of-type,
 		&:nth-of-type(2) {
 			background: none;
@@ -144,136 +152,109 @@ a {
 
 .omni-kof {
 	display: grid;
-	/* grid-template-columns: repeat(5, 1fr) calc(2 * var(--step-8)) repeat(6, 1fr); */
 	grid-template-columns: repeat(15, 1fr);
-	grid-template-rows: calc(2 * var(--step-8)) 6rem var(--step-2) calc(2.25 * var(--step-8)) var(--step-2) calc(2.5 * var(--step-7)) auto;
-	@media screen and (max-width: 35rem) {
-		/* margin: 2rem 3rem 6rem 3rem; */
-		grid-template-rows: auto auto auto 2rem auto;
-	}
-	@media screen and (max-width: 32rem) {
+	grid-template-rows:
+		calc(2 * var(--step-9)) 4rem var(--step-2) calc(2.25 * var(--step-8)) var(--step-2) calc(2.5 * var(--step-7))
+		auto;
+	@media screen and (width <= 28rem) {
+		grid-template-rows: auto auto var(--step-2) 1fr auto;
 		margin: 2rem 0 0 0;
 	}
 }
 .kof-titles {
-	grid-column: 1 / span 10;
+	grid-column: 1 / span 11;
 	grid-row: 1 / span 2;
 	padding-inline-start: var(--step-7);
 	z-index: 10;
-	@media screen and (max-width: 32rem) {
-		z-index: 12;
+	@media screen and (width <= 28rem) {
 		grid-row: 1;
-		grid-column: 2 / span 10;
+		grid-column: 2 / -1;
 		color: #ffffff;
-		padding: 0;
+		padding: unset;
 	}
 }
 .kof-image {
+	display: grid;
 	grid-column: 9 / -1;
-	grid-row: 2;
-	width: 100%;
-  height: auto;
+	grid-row: 2 / -1;
 	position: relative;
-	/* @media screen and (max-width: 45rem) {
-		grid-column: 9 / -1;
-	} */
-	/* @media screen and (max-width: 35rem) {
-		top: 0;
-		grid-column: 6 / span 6;
-		grid-row: 3 / span 2;
-	} */
-	@media screen and (max-width: 32rem) {
-    border-radius: var(--border-r) 0 0 var(--border-r);
+	grid-template-columns: subgrid;
+	grid-template-rows: auto var(--step-2) 1fr;
+	@media screen and (width <= 28rem) {
+		grid-column: 10 / -1;
+		border-radius: var(--border-r) 0 0 var(--border-r);
 		z-index: 11;
-		grid-column: 6 / span 7;
+	}
+	img {
+		display: inline;
+		grid-column: 1 / -1;
+		width: 100%;
+		height: auto;
+		z-index: 10;
+		@media screen and (width <= 28rem) {
+			border-radius: var(--border-r) 0 0 var(--border-r);
+		}
+	}
+	footer {
+		grid-column: 3 / -1;
+		grid-row: 3;
+		display: grid;
+		grid-template-rows: auto;
+		transition: opacity 0.3s ease-in;
+		padding-inline-start: var(--step-2);
+		height: min-content;
+		@media screen and (width <= 45rem) {
+			grid-column: 5 / -1;
+		}
+		@media screen and (width <= 28rem) {
+			grid-column: 3 / -1;
+		}
+		&:hover {
+			opacity: 1;
+		}
+		p {
+			color: #ffffff;
+			opacity: 0.5;
+		}
+		span {
+			padding-block-end: var(--step-2);
+		}
 	}
 }
 .kof-tagline {
-	grid-column: 2 / span 8;
+	grid-column: 2 / span 10;
 	grid-row: 4;
-	padding-inline-start: 3.5rem;
-	/* @media screen and (max-width: 55rem) {
-		padding-inline-start: 3rem;
-	} */
-	/* @media screen and (max-width: 45rem) {
-		grid-column: 1 / span 9;
-		padding-inline-start: 2rem;
-    margin-inline-start: 2rem;
-	} */
-	@media screen and (max-width: 35rem) {
+	padding-inline-start: var(--step-7);
+	@media screen and (width <= 28rem) {
 		grid-row: 2;
-		z-index: -12;
 		color: #ffffff;
-		grid-column: 2 / span 10;
-		padding: 0 0 2rem 0;
+		grid-column: 2 / -1;
+		padding: unset;
 	}
 }
 .kof-bio {
 	z-index: 13;
-	grid-column: 3 / span 9;
+	grid-column: 3 / span 8;
 	grid-row: 6 / -1;
-	padding: 3rem 3.5rem ;
-  flex-direction: column;
-  align-items: start;
-	/* @media screen and (max-width: 55rem) {
-		padding: 2rem 2.25rem;
-		grid-column: 3 / span 8;
-	} */
-	/* @media screen and (max-width: 45rem) {
-		grid-column: 3 / span 9;
-		padding: 1.75rem 2rem;
-	} */
-	@media screen and (max-width: 35rem) {
-		z-index: -13;
-		padding: 3rem;
-		grid-row: 4 / span 2;
-		grid-column: 1 / span 10;
+	padding: var(--step-5);
+	flex-direction: column;
+	align-items: start;
+	height: max-content;
+	@media screen and (width <= 45rem) {
+		grid-column: 3 / span 10;
 	}
-	@media screen and (max-width: 32rem) {
-    border-radius: 0;
+	@media screen and (width <= 28rem) {
+		grid-row: 4 / -1;
+		grid-column: 1 / span 11;
+		border-radius: 0 var(--border-r) var(--border-r) 0;
 	}
 }
-.kof-links {
-	grid-column: 12 / -1;
-	grid-row: 7;
-	display: grid;
-	grid-template-rows: auto;
-	transition: opacity 0.3s ease-in;
-	padding-inline-start: 2rem;
-	height: min-content;
-	/* margin-top: 1rem; */
-	&:hover {
-		opacity: 1;
-	}
-	p {
-		color: #ffffff;
-		margin: 0;
-    opacity: 0.4;
-	}
-	span:first-of-type {
-		margin-bottom: 0.125rem;
-	}
-	span {
-		margin-bottom: 1rem;
-	}
-	/* @media screen and (max-width: 55rem) {
-		grid-column: 11 / span 2;
-	} */
-	/* @media screen and (max-width: 45rem) {
-		margin-top: 0;
-		grid-row: 6;
-		grid-column: 1 / span 2;
-		padding-left: 0;
-		padding-right: 1rem;
-	} */
-	@media screen and (max-width: 35rem) {
-		padding-top: 0;
-		grid-column: 2 / span 4;
-		grid-row: 3 / span 2;
-		height: 5vh;
-	}
+.kof-logo {
+	max-width: var(--step-4);
+	max-height: var(--step-4);
+	margin-block-start: var(--step--1);
 }
-
+/* 
 .shape {
 	transition: filter 1.3s ease-out;
 	position: relative;
@@ -336,7 +317,7 @@ a {
 		right: 6rem;
 	}
 }
-@media screen and (max-width: 32rem) {
+@media screen and (width <=  28rem) {
 	.pentagon {
 		grid-column: 8 / span 8;
 		z-index: -171;
@@ -418,18 +399,11 @@ a {
 		right: 0.5rem;
 	}
 }
-@media screen and (max-width: 32rem) {
+@media screen and (width <=  28rem) {
 	.multiStar {
 		grid-column: 8 / span 8;
 		z-index: -171;
 		grid-row: 4;
 		width: 2rem;
 	}
-}
-
-.kof-logo {
-	max-width: 1.5rem;
-	max-height: 1.5rem;
-	opacity: 0.9;
-	fill: #7a6831;
-}
+} */
