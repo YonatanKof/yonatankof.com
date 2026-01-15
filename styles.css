@@ -1,0 +1,272 @@
+@font-face {
+	font-family: 'Inknut Antiqua';
+	src: url('../fonts/InknutAntiqua-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inknut Antiqua';
+	src: url('../fonts/InknutAntiqua-ExtraBold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+:root {
+	--step--3: clamp(0.434rem, 0.4218rem + 0.0537vw, 0.448rem);
+	--step--2: clamp(0.5208rem, 0.4866rem + 0.1506vw, 0.56rem);
+	--step--1: clamp(0.625rem, 0.5594rem + 0.2885vw, 0.7rem);
+	--step-0: clamp(0.75rem, 0.6406rem + 0.4808vw, 0.875rem);
+	--step-1: clamp(0.9rem, 0.7305rem + 0.7452vw, 1.0938rem);
+	--step-2: clamp(1.08rem, 0.8287rem + 1.1046vw, 1.3672rem);
+	--step-3: clamp(1.296rem, 0.9346rem + 1.5884vw, 1.709rem);
+	--step-4: clamp(1.5552rem, 1.0468rem + 2.2347vw, 2.1362rem);
+	--step-5: clamp(1.8662rem, 1.1627rem + 3.0925vw, 2.6703rem);
+	--step-6: clamp(2.2395rem, 1.2784rem + 4.2245vw, 3.3379rem);
+	--step-7: clamp(2.6874rem, 1.3881rem + 5.7113vw, 4.1723rem);
+	--step-8: clamp(3.2249rem, 1.4831rem + 7.6559vw, 5.2154rem);
+	--step-9: clamp(3.8698rem, 1.5516rem + 10.1901vw, 6.5193rem);
+	--step-10: clamp(4.6438rem, 1.5767rem + 13.4818vw, 8.1491rem);
+	--shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.15), 0 8px 24px 0 rgba(0, 0, 0, 0.3);
+}
+
+html {
+	font-size: 13px;
+	background: #171614;
+	font-family: system-ui, sans-serif;
+	line-height: 1.35;
+	--border-r: 0.5rem;
+	@media screen and (width <= 30rem) {
+		font-size: 14px;
+	}
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+	text-wrap: pretty;
+}
+
+.main-opacity {
+	margin: 0;
+	padding: 0;
+	opacity: 1;
+}
+h1,
+h2,
+p,
+a {
+	padding: 0;
+	margin: 0;
+}
+h1,
+h2 {
+	font-family: 'Inknut Antiqua';
+	letter-spacing: -0.075em;
+	line-height: 1.2;
+	padding-block-end: var(--step--3);
+}
+h1 {
+	font-size: var(--step-7);
+	font-weight: 700;
+	@media screen and (width <= 30rem) {
+		padding-block-start: var(--step-5);
+	}
+}
+
+h2 {
+	font-size: var(--step-5);
+	font-weight: 500;
+	@media screen and (width <= 30rem) {
+		padding-block-start: var(--step-2);
+	}
+}
+
+.text-md {
+	font-size: var(--step-2);
+	margin-bottom: 0.44444444rem;
+}
+
+.text-sm {
+	font-size: 0.9375rem;
+	font-size: var(--step-1);
+	margin-bottom: 0.61538462rem;
+}
+
+.text-xs {
+	font-size: 0.75rem;
+	font-size: var(--step-0);
+	margin-bottom: 0.61538462rem;
+}
+
+.text-xxs {
+	font-size: 0.625rem;
+	font-size: var(--step--1);
+	margin-bottom: 0.125rem;
+}
+
+a {
+	text-decoration: none;
+}
+
+.link {
+	font-family: 'Inknut Antiqua';
+	color: #6cf;
+	transition: color 0.3s ease-out;
+	line-height: inherit;
+	&:hover {
+		color: white;
+		/* filter: invert(100%); */
+	}
+}
+
+.hr {
+	background-color: #7a6831;
+	height: 1px;
+	display: block;
+	margin-bottom: 24px;
+	margin-left: -8px;
+	margin-right: -8px;
+}
+
+.container {
+	height: max-content;
+	max-width: 60rem;
+	margin-inline: auto;
+	padding: 2rem;
+	@media screen and (width <= 30rem) {
+		padding: 0;
+	}
+}
+
+.card {
+	background: #ffffff;
+	box-shadow: var(--shadow);
+	border-radius: var(--border-r);
+	display: flex;
+	align-items: center;
+}
+
+.omni-kof {
+	display: grid;
+	grid-template-columns: repeat(15, 1fr);
+	grid-template-rows: auto 4rem var(--step-2) auto var(--step-2) auto;
+	@media screen and (width <= 30rem) {
+		grid-template-rows: auto auto var(--step-5) 1fr;
+		/* margin: var(--step-2) 0 0 0; */
+		height: 100vh;
+	}
+}
+.kof-titles {
+	grid-column: 1 / span 11;
+	grid-row: 1 / span 2;
+	padding-inline-start: var(--step-6);
+	padding-block: var(--step-4);
+	z-index: 10;
+	@media screen and (width <= 30rem) {
+		grid-row: 1;
+		grid-column: 2 / -1;
+		color: #ffffff;
+		padding: unset;
+		background: none;
+		box-shadow: none;
+	}
+}
+.kof-tagline {
+	grid-column: 2 / span 10;
+	grid-row: 4;
+	padding-inline-start: var(--step-5);
+	padding-block: var(--step-4);
+	@media screen and (width <= 30rem) {
+		grid-row: 2;
+		color: #ffffff;
+		grid-column: 2 / -1;
+		padding: unset;
+		background: none;
+		box-shadow: none;
+	}
+}
+.kof-image {
+	display: grid;
+	grid-column: 9 / -1;
+	grid-row: 2 / -1;
+	position: relative;
+	grid-template-columns: subgrid;
+	grid-template-rows: auto var(--step-2) 1fr;
+	z-index: 5;
+	@media screen and (width <= 45rem) {
+		grid-column: 10 / -1;
+	}
+	@media screen and (width <= 30rem) {
+		grid-row: 2 / -1;
+		border-radius: var(--border-r) 0 0 var(--border-r);
+		z-index: 10;
+	}
+	img {
+		display: inline;
+		grid-column: 1 / -1;
+		width: 100%;
+		height: auto;
+		@media screen and (width <= 30rem) {
+			border-radius: var(--border-r) 0 0 var(--border-r);
+			margin-block-start: var(--step-5);
+		}
+	}
+	footer {
+		grid-column: 3 / -1;
+		grid-row: 3;
+		display: grid;
+		grid-template-rows: auto;
+		transition: opacity 0.3s ease-in;
+		padding-inline-start: var(--step-2);
+		height: min-content;
+		@media screen and (width <= 45rem) {
+			grid-column: 4 / -1;
+		}
+		@media screen and (width <= 30rem) {
+			grid-column: 3 / -1;
+		}
+		&:hover {
+			opacity: 1;
+		}
+		p {
+			color: #ffffff;
+			opacity: 0.5;
+		}
+	}
+}
+.kof-links {
+	display: flex;
+	flex-direction: column;
+	gap: var(--step-2);
+}
+.kof-bio {
+	z-index: 10;
+	grid-column: 3 / span 8;
+	grid-row: 6 / -1;
+	padding: var(--step-5) var(--step-6) var(--step-7);
+	flex-direction: column;
+	height: max-content;
+	@media screen and (width <= 45rem) {
+		grid-column: 3 / span 10;
+	}
+	@media screen and (width <= 30rem) {
+		padding: var(--step-5);
+		padding-inline-end: var(--step-9);
+		grid-row: 4 / -1;
+		grid-column: 1 / span 11;
+		border-radius: 0 var(--border-r) 0 0;
+		height: unset;
+	}
+}
+.kof-logo {
+	max-width: var(--step-4);
+	max-height: var(--step-4);
+	margin-block-start: var(--step--1);
+}
